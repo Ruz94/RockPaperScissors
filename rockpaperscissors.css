@@ -1,0 +1,109 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "HelveticaNeue", "Arial", "sans-serif";
+  }
+  
+.contentWrapper {
+    background-color: #363333;;
+    margin: 50px auto;
+    width: 600px;
+    height: 600px;
+}
+
+header {
+    padding: 35px;
+}
+
+header > h1 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.btnSection {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px
+}
+
+.btnSection > button {
+    font-size: 25px;
+    padding: 20px 15px;
+    width: 100px;
+    background: none;
+    border: none;
+    color: #eee;
+    outline-color: #FFC83D;
+}
+
+.emoji {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.emoji:hover {
+    font-size: 60px;
+    transition: all 0.5s;
+    transform: translateX(10px);
+}
+
+.scoreMessageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.scoreMessage {
+    font-size: 35px;
+    color: #FFC83D;
+}
+
+.scoreboardContainer {
+    border-top: 2px solid lightgrey;
+    margin: 0 20px 0 20px;
+}
+
+.scoreboardList {
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userScore {
+    font-size: 20px;
+    color: #eee;
+}
+
+.computerScore {
+    font-size: 20px;
+    color: #eee;
+}
+
+.restartChoice {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #eee;
+}
+
+.restartChoice:hover {
+    color: #FFC83D;
+    opacity: 0.9;
+    cursor: pointer;
+}

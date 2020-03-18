@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" xmlns="http://www.w3.org/1999/xhtml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="rockpaperscissors.css" />
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="contentWrapper">
+    <header>
+    <h1>Rock Paper Scissors</h1>
+    </header>
+  
+    <section class="btnSection">
+        <button class="rockBtn" data-move="0"><span class="emoji">👊</span>Rock</button>
+        <button class="paperBtn" data-move="1"><span class="emoji">🤚</span>Paper</button>
+        <button class="scissorsBtn" data-move="2"><span class="emoji">✌️</span>Scissors</button>
+      </section>
+
+      <section class="scoreMessageContainer">
+        <p class="scoreMessage">
+        </p>
+      </section>
+
+      <section class="scoreboardContainer">
+            <ul class="scoreboardList">
+                <li class="userScore">User Score: <span>0</span></li>
+                <li class="computerScore">Computer Score: <span>0</span></li>
+            </ul>
+            <p class="restartChoice">Restart</p>
+      </section>
+      </div>
+
+    <script>
+      //listen for user clicking on a button
+      const buttonToggle = document.querySelectorAll(".rockBtn, .paperBtn, .scissorsBtn");
+      const userScoreboard = document.querySelector(".userScore span");
+      const computerScoreboard = document.querySelector(".computerScore span");
+      const userMessage = document.querySelector(".scoreMessage");
+      const restartButton = document.querySelector(".restartChoice");
+      let userScore = 0;
+      let computerScore = 0;
+      //set scoreboard message if there is one otherwise set it to empty
+      const setScoreboardMessage = (result) => {
+        if (result) {
+          userMessage.textContent = `You ${result}`;       
+        } else {
+          userMessage.textContent = "";
+        }
+      }
+      //reset scoreboard to 0 and display empty scoreboard message
+      restartButton.addEventListener("click", () => {
+        setScoreboardMessage();
+        userScore = 0;
+        userScoreboard.textContent = userScore;
+            computerScore = 0;
+            computerScoreboard.textContent = computerScore;
+      });
+      //go through each button individually
+      buttonToggle.forEach(button => {
+        button.addEventListener("click", function() {
+        const playerMove = parseInt(this.dataset.move);
+      //compare user and computer choices 
+        const computerMove = Math.floor(Math.random() * 3);
+          if (playerMove === computerMove) {
+            setScoreboardMessage ('drew');
+          } else if (playerMove === 0 && computerMove === 2 || playerMove === 1 && computerMove === 0 || playerMove === 2 && computerMove === 1) {
+            userScore++;
+            userScoreboard.textContent = userScore;
+            setScoreboardMessage ('won');
+          } else {
+            computerScore++;
+            computerScoreboard.textContent = computerScore;
+            setScoreboardMessage('lost');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
